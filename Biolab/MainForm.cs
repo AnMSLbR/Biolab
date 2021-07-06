@@ -95,5 +95,11 @@ namespace Biolab
                 btn_ConnectPort.Enabled = true;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ExperimentForm experimentForm = new ExperimentForm(_connectedPort);
+            experimentForm.ShowDialog();
+        }
     }
 }
