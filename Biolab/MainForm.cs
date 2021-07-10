@@ -15,6 +15,7 @@ namespace Biolab
     {
 
         private SerialPort _connectedPort = new SerialPort();
+        private ListItem _selectedListItem;
         public MainForm()
         {
             InitializeComponent();
@@ -96,10 +97,29 @@ namespace Biolab
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_AddPoint_Click(object sender, EventArgs e)
         {
-            ExperimentForm experimentForm = new ExperimentForm(_connectedPort);
-            experimentForm.ShowDialog();
+            //ExperimentForm experimentForm = new ExperimentForm(_connectedPort);
+            //experimentForm.ShowDialog();
+            ListItem listItem = new ListItem();
+            listItem.PointID = "Точка N";
+            listItem.Title = "Название";
+            listItem.RecordDate = DateTime.Now;
+            listItem.Click += new EventHandler(listItem_click);
+            flw_ListItems.Controls.Add(listItem);
+        }
+
+        private void btn_DeletePoint_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void listItem_click (object sender, EventArgs e)
+        {
+            if (_selectedListItem != null)
+                _selectedListItem.BorderStyle = BorderStyle.None;
+            _selectedListItem = (ListItem)sender;
+            _selectedListItem.BorderStyle = BorderStyle.FixedSingle;
         }
     }
 }
