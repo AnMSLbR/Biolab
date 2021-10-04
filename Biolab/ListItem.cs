@@ -20,8 +20,8 @@ namespace Biolab
         #region Properties
 
         private string _title;
-        private string _pointID;
-        private DateTime _recordDate;
+        private int _pointID;
+        private string _recordDate;
 
         [Category("Custom Props")]
         public string Title
@@ -31,16 +31,16 @@ namespace Biolab
         }
 
         [Category("Custom Props")]
-        public string PointID
+        public int PointID
         {
             get { return _pointID; }
-            set { _pointID = value; lbl_PointID.Text = value; }
+            set { _pointID = value; lbl_PointID.Text = value.ToString(); }
         }
 
-        public DateTime RecordDate
+        public string RecordDate
         {
             get { return _recordDate; }
-            set { _recordDate = value; lbl_RecordDateValue.Text = Convert.ToString(value); }
+            set { _recordDate = value; lbl_RecordDateValue.Text = value; }
         }
 
         #endregion

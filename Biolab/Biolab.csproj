@@ -100,7 +100,35 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="images\" />
+    <None Include="images\deletePointDisabled_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\editPoint_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\editPointDisabled_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\addPoint_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\deleteAllPoints_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\deletePoint_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\helpDistance_toolTip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\refresh_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\deleteAllPointsDisabled_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\start_btn.png" />
+    <None Include="images\stop_btn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
