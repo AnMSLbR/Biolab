@@ -117,4 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="addPoint_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\addPoint_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deleteAllPointsDisabled_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\deleteAllPointsDisabled_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deleteAllPoints_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\deleteAllPoints_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deletePointDisabled_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\deletePointDisabled_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deletePoint_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\deletePoint_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="editPointDisabled_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\editPointDisabled_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="editPoint_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\editPoint_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="helpDistance_toolTip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\helpDistance_toolTip.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="refresh_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\refresh_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="start_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\start_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stop_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\stop_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -16,6 +16,9 @@ namespace Biolab
 
         private SerialPort _connectedPort = new SerialPort();
         private ListItem _selectedListItem;
+
+        private List<Experiment> _experimentList = new List<Experiment>();
+
         public MainForm()
         {
             InitializeComponent();
@@ -23,12 +26,16 @@ namespace Biolab
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            UpdateListItems();
+            UpdateControls();
             searchPorts();
+            //btn_editPoint.Enabled = false;
+            //btn_DeletePoint.Enabled = false;
         }
 
         private void btn_ConnectPort_Click(object sender, EventArgs e)
         {
-            if(_connectedPort.IsOpen)
+            if (_connectedPort.IsOpen)
             {
                 closePort();
                 btn_ConnectPort.Text = "Подключить";
@@ -76,7 +83,6 @@ namespace Biolab
             }
         }
 
-
         private void searchPorts()
         {
             cb_Ports.Items.Clear();
@@ -99,27 +105,116 @@ namespace Biolab
 
         private void btn_AddPoint_Click(object sender, EventArgs e)
         {
-            //ExperimentForm experimentForm = new ExperimentForm(_connectedPort);
-            //experimentForm.ShowDialog();
-            ListItem listItem = new ListItem();
-            listItem.PointID = "Точка N";
-            listItem.Title = "Название";
-            listItem.RecordDate = DateTime.Now;
-            listItem.Click += new EventHandler(listItem_click);
-            flw_ListItems.Controls.Add(listItem);
+            ExperimentForm experimentForm = new ExperimentForm(_experimentList);
+            DialogResult result = experimentForm.ShowDialog();
+            if (result == DialogResult.OK)
+                UpdateListItems();
+                    //AddExperimentToList();
+
+        }
+
+        private void btn_editPoint_Click(object sender, EventArgs e)
+        {
+            ExperimentForm experimentForm = new ExperimentForm(_experimentList, _selectedListItem);
+            DialogResult result = experimentForm.ShowDialog();
+            if (result == DialogResult.OK)
+                UpdateListItems();
+                    //UpdateListItem();
         }
 
         private void btn_DeletePoint_Click(object sender, EventArgs e)
         {
-            
+            _experimentList.RemoveAt(_selectedListItem.PointID - 1);
+            UpdateListItems();
         }
 
-        private void listItem_click (object sender, EventArgs e)
+
+        private void btn_DeleteAllPoints_Click(object sender, EventArgs e)
+        {
+            _experimentList.Clear();
+            UpdateListItems();
+        }
+        //private void AddExperimentToList()
+        //{
+        //    ListItem listItem = new ListItem();
+        //    listItem.PointID = _experimentList.Count;
+        //    listItem.Title = _experimentList.Last<Experiment>().Title;
+        //    listItem.RecordDate = "—";
+        //    listItem.Click += new EventHandler(listItem_Click);
+        //    flw_ListItems.Controls.Add(listItem);
+        //}
+
+        //private void UpdateListItem()
+        //{
+        //    _selectedListItem.Title = _experimentList[_selectedListItem.PointID - 1].Title;
+        //}
+
+        private void UpdateListItems()
+        {
+            if (_experimentList.Any())
+            {
+                flw_ListItems.Controls.Clear();
+                _selectedListItem = null;
+                int id = 1;
+                foreach (Experiment experiment in _experimentList)
+                {
+                    ListItem listItem = new ListItem();
+                    listItem.PointID = id;
+                    listItem.Title = experiment.Title;
+                    listItem.RecordDate = "—";
+                    listItem.Click += new EventHandler(listItem_Click);
+                    flw_ListItems.Controls.Add(listItem);
+                    id++;
+                }
+            }
+            else
+                flw_ListItems.Controls.Clear();
+            UpdateControls();
+        }
+
+        private void UpdateControls()
+        {
+            if (_selectedListItem != null)
+            {
+                btn_editPoint.Enabled = true;
+                btn_editPoint.BackgroundImage = Properties.Resources.editPoint_btn;
+                btn_editPoint.BackgroundImageLayout = ImageLayout.Zoom;
+                btn_DeletePoint.Enabled = true;
+                btn_DeletePoint.BackgroundImage = Properties.Resources.deletePoint_btn;
+                btn_DeletePoint.BackgroundImageLayout = ImageLayout.Zoom;
+            }
+            else
+            {
+                btn_editPoint.Enabled = false;
+                btn_editPoint.BackgroundImage = Properties.Resources.editPointDisabled_btn;
+                btn_editPoint.BackgroundImageLayout = ImageLayout.Zoom;
+                btn_DeletePoint.Enabled = false;
+                btn_DeletePoint.BackgroundImage = Properties.Resources.deletePointDisabled_btn;
+                btn_DeletePoint.BackgroundImageLayout = ImageLayout.Zoom;
+            }
+
+            if(_experimentList.Any())
+            {
+                btn_DeleteAllPoints.Enabled = true;
+                btn_DeleteAllPoints.BackgroundImage = Properties.Resources.deleteAllPoints_btn;
+                btn_DeleteAllPoints.BackgroundImageLayout = ImageLayout.Zoom;
+            }
+            else
+            {
+                btn_DeleteAllPoints.Enabled = false;
+                btn_DeleteAllPoints.BackgroundImage = Properties.Resources.deleteAllPointsDisabled_btn;
+                btn_DeleteAllPoints.BackgroundImageLayout = ImageLayout.Zoom;
+            }
+        }
+
+        private void listItem_Click(object sender, EventArgs e)
         {
             if (_selectedListItem != null)
                 _selectedListItem.BorderStyle = BorderStyle.None;
             _selectedListItem = (ListItem)sender;
             _selectedListItem.BorderStyle = BorderStyle.FixedSingle;
+            UpdateControls();
         }
+
     }
 }

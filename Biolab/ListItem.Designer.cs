@@ -34,17 +34,18 @@ namespace Biolab
             this.lbl_RecordDate = new System.Windows.Forms.Label();
             this.pnl_Line = new System.Windows.Forms.Panel();
             this.lbl_RecordDateValue = new System.Windows.Forms.Label();
+            this.lbl_Point = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_PointID
             // 
             this.lbl_PointID.AutoSize = true;
             this.lbl_PointID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_PointID.Location = new System.Drawing.Point(12, 8);
+            this.lbl_PointID.Location = new System.Drawing.Point(67, 8);
             this.lbl_PointID.Name = "lbl_PointID";
-            this.lbl_PointID.Size = new System.Drawing.Size(50, 20);
+            this.lbl_PointID.Size = new System.Drawing.Size(21, 20);
             this.lbl_PointID.TabIndex = 0;
-            this.lbl_PointID.Text = "Point";
+            this.lbl_PointID.Text = "N";
             this.lbl_PointID.MouseEnter += new System.EventHandler(this.ListItem_MouseEnter);
             this.lbl_PointID.MouseLeave += new System.EventHandler(this.ListItem_MouseLeave);
             // 
@@ -54,9 +55,9 @@ namespace Biolab
             this.lbl_PointTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbl_PointTitle.Location = new System.Drawing.Point(12, 30);
             this.lbl_PointTitle.Name = "lbl_PointTitle";
-            this.lbl_PointTitle.Size = new System.Drawing.Size(38, 20);
+            this.lbl_PointTitle.Size = new System.Drawing.Size(83, 20);
             this.lbl_PointTitle.TabIndex = 1;
-            this.lbl_PointTitle.Text = "Title";
+            this.lbl_PointTitle.Text = "Название";
             this.lbl_PointTitle.MouseEnter += new System.EventHandler(this.ListItem_MouseEnter);
             this.lbl_PointTitle.MouseLeave += new System.EventHandler(this.ListItem_MouseLeave);
             // 
@@ -66,9 +67,9 @@ namespace Biolab
             this.lbl_RecordDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbl_RecordDate.Location = new System.Drawing.Point(13, 53);
             this.lbl_RecordDate.Name = "lbl_RecordDate";
-            this.lbl_RecordDate.Size = new System.Drawing.Size(85, 16);
+            this.lbl_RecordDate.Size = new System.Drawing.Size(94, 16);
             this.lbl_RecordDate.TabIndex = 2;
-            this.lbl_RecordDate.Text = "RecordDate:";
+            this.lbl_RecordDate.Text = "Дата съемки:";
             this.lbl_RecordDate.MouseEnter += new System.EventHandler(this.ListItem_MouseEnter);
             this.lbl_RecordDate.MouseLeave += new System.EventHandler(this.ListItem_MouseLeave);
             // 
@@ -92,11 +93,22 @@ namespace Biolab
             this.lbl_RecordDateValue.MouseEnter += new System.EventHandler(this.ListItem_MouseEnter);
             this.lbl_RecordDateValue.MouseLeave += new System.EventHandler(this.ListItem_MouseLeave);
             // 
+            // lbl_Point
+            // 
+            this.lbl_Point.AutoSize = true;
+            this.lbl_Point.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_Point.Location = new System.Drawing.Point(11, 8);
+            this.lbl_Point.Name = "lbl_Point";
+            this.lbl_Point.Size = new System.Drawing.Size(58, 20);
+            this.lbl_Point.TabIndex = 5;
+            this.lbl_Point.Text = "Точка";
+            // 
             // ListItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.lbl_Point);
             this.Controls.Add(this.lbl_RecordDateValue);
             this.Controls.Add(this.pnl_Line);
             this.Controls.Add(this.lbl_RecordDate);
@@ -119,5 +131,6 @@ namespace Biolab
         private System.Windows.Forms.Label lbl_RecordDate;
         private System.Windows.Forms.Panel pnl_Line;
         private System.Windows.Forms.Label lbl_RecordDateValue;
+        private System.Windows.Forms.Label lbl_Point;
     }
 }
