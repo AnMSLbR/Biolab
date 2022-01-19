@@ -53,6 +53,12 @@
     <Compile Include="ExperimentForm.Designer.cs">
       <DependentUpon>ExperimentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImageManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ImageManager.Designer.cs">
+      <DependentUpon>ImageManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     <Compile Include="Trajectory.cs" />
     <EmbeddedResource Include="ExperimentForm.resx">
       <DependentUpon>ExperimentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageManager.resx">
+      <DependentUpon>ImageManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListItem.resx">
       <DependentUpon>ListItem.cs</DependentUpon>

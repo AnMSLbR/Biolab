@@ -35,18 +35,10 @@ namespace Biolab
             this.lbl_Ports = new System.Windows.Forms.Label();
             this.btn_ConnectPort = new System.Windows.Forms.Button();
             this.pnl_ConnectPorts = new System.Windows.Forms.Panel();
-            this.btn_RefreshPorts = new System.Windows.Forms.Button();
             this.pnl_Trajectory = new System.Windows.Forms.Panel();
-            this.btn_DeleteAllPoints = new System.Windows.Forms.Button();
             this.flw_ListItems = new System.Windows.Forms.FlowLayoutPanel();
             this.lbl_Experiment = new System.Windows.Forms.Label();
-            this.btn_editPoint = new System.Windows.Forms.Button();
-            this.btn_DeletePoint = new System.Windows.Forms.Button();
-            this.btn_AddPoint = new System.Windows.Forms.Button();
             this.toolTip_MainForm = new System.Windows.Forms.ToolTip(this.components);
-            this.btn_ReturnToStart = new System.Windows.Forms.Button();
-            this.btn_StopMoving = new System.Windows.Forms.Button();
-            this.btn_StartMoving = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnl_ExperimentInformation = new System.Windows.Forms.Panel();
             this.lbl_RecordDate = new System.Windows.Forms.Label();
@@ -59,6 +51,14 @@ namespace Biolab
             this.lbl_ExperimentDescription = new System.Windows.Forms.Label();
             this.lbl_ExperimentTitle = new System.Windows.Forms.Label();
             this.pnl_ControlButtons = new System.Windows.Forms.Panel();
+            this.btn_ReturnToStart = new System.Windows.Forms.Button();
+            this.btn_StopMoving = new System.Windows.Forms.Button();
+            this.btn_StartMoving = new System.Windows.Forms.Button();
+            this.btn_DeleteAllPoints = new System.Windows.Forms.Button();
+            this.btn_editPoint = new System.Windows.Forms.Button();
+            this.btn_DeletePoint = new System.Windows.Forms.Button();
+            this.btn_AddPoint = new System.Windows.Forms.Button();
+            this.btn_RefreshPorts = new System.Windows.Forms.Button();
             this.pnl_ConnectPorts.SuspendLayout();
             this.pnl_Trajectory.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -113,20 +113,6 @@ namespace Biolab
             this.pnl_ConnectPorts.Size = new System.Drawing.Size(382, 111);
             this.pnl_ConnectPorts.TabIndex = 4;
             // 
-            // btn_RefreshPorts
-            // 
-            this.btn_RefreshPorts.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_RefreshPorts.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_RefreshPorts.BackgroundImage")));
-            this.btn_RefreshPorts.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_RefreshPorts.Location = new System.Drawing.Point(13, 48);
-            this.btn_RefreshPorts.Name = "btn_RefreshPorts";
-            this.btn_RefreshPorts.Size = new System.Drawing.Size(71, 47);
-            this.btn_RefreshPorts.TabIndex = 3;
-            this.btn_RefreshPorts.TabStop = false;
-            this.toolTip_MainForm.SetToolTip(this.btn_RefreshPorts, "Обновить");
-            this.btn_RefreshPorts.UseVisualStyleBackColor = false;
-            this.btn_RefreshPorts.Click += new System.EventHandler(this.btn_RefreshPorts_Click);
-            // 
             // pnl_Trajectory
             // 
             this.pnl_Trajectory.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -141,20 +127,6 @@ namespace Biolab
             this.pnl_Trajectory.Name = "pnl_Trajectory";
             this.pnl_Trajectory.Size = new System.Drawing.Size(382, 869);
             this.pnl_Trajectory.TabIndex = 5;
-            // 
-            // btn_DeleteAllPoints
-            // 
-            this.btn_DeleteAllPoints.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_DeleteAllPoints.BackgroundImage = global::Biolab.Properties.Resources.deleteAllPointsDisabled_btn;
-            this.btn_DeleteAllPoints.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_DeleteAllPoints.Location = new System.Drawing.Point(312, 12);
-            this.btn_DeleteAllPoints.Name = "btn_DeleteAllPoints";
-            this.btn_DeleteAllPoints.Size = new System.Drawing.Size(55, 47);
-            this.btn_DeleteAllPoints.TabIndex = 9;
-            this.btn_DeleteAllPoints.TabStop = false;
-            this.toolTip_MainForm.SetToolTip(this.btn_DeleteAllPoints, "Очистить список");
-            this.btn_DeleteAllPoints.UseVisualStyleBackColor = false;
-            this.btn_DeleteAllPoints.Click += new System.EventHandler(this.btn_DeleteAllPoints_Click);
             // 
             // flw_ListItems
             // 
@@ -174,87 +146,6 @@ namespace Biolab
             this.lbl_Experiment.Size = new System.Drawing.Size(115, 20);
             this.lbl_Experiment.TabIndex = 4;
             this.lbl_Experiment.Text = "Эксперимент:";
-            // 
-            // btn_editPoint
-            // 
-            this.btn_editPoint.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_editPoint.BackgroundImage = global::Biolab.Properties.Resources.editPointDisabled_btn;
-            this.btn_editPoint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_editPoint.Location = new System.Drawing.Point(182, 12);
-            this.btn_editPoint.Name = "btn_editPoint";
-            this.btn_editPoint.Size = new System.Drawing.Size(55, 47);
-            this.btn_editPoint.TabIndex = 7;
-            this.btn_editPoint.TabStop = false;
-            this.toolTip_MainForm.SetToolTip(this.btn_editPoint, "Редактировать");
-            this.btn_editPoint.UseVisualStyleBackColor = false;
-            this.btn_editPoint.Click += new System.EventHandler(this.btn_editPoint_Click);
-            // 
-            // btn_DeletePoint
-            // 
-            this.btn_DeletePoint.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_DeletePoint.BackgroundImage = global::Biolab.Properties.Resources.deletePointDisabled_btn;
-            this.btn_DeletePoint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_DeletePoint.Location = new System.Drawing.Point(247, 12);
-            this.btn_DeletePoint.Name = "btn_DeletePoint";
-            this.btn_DeletePoint.Size = new System.Drawing.Size(55, 47);
-            this.btn_DeletePoint.TabIndex = 8;
-            this.btn_DeletePoint.TabStop = false;
-            this.toolTip_MainForm.SetToolTip(this.btn_DeletePoint, "Удалить");
-            this.btn_DeletePoint.UseVisualStyleBackColor = false;
-            this.btn_DeletePoint.Click += new System.EventHandler(this.btn_DeletePoint_Click);
-            // 
-            // btn_AddPoint
-            // 
-            this.btn_AddPoint.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_AddPoint.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_AddPoint.BackgroundImage")));
-            this.btn_AddPoint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_AddPoint.Location = new System.Drawing.Point(117, 12);
-            this.btn_AddPoint.Name = "btn_AddPoint";
-            this.btn_AddPoint.Size = new System.Drawing.Size(55, 47);
-            this.btn_AddPoint.TabIndex = 6;
-            this.btn_AddPoint.TabStop = false;
-            this.toolTip_MainForm.SetToolTip(this.btn_AddPoint, "Добавить");
-            this.btn_AddPoint.UseVisualStyleBackColor = false;
-            this.btn_AddPoint.Click += new System.EventHandler(this.btn_AddPoint_Click);
-            // 
-            // btn_ReturnToStart
-            // 
-            this.btn_ReturnToStart.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_ReturnToStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_ReturnToStart.BackgroundImage")));
-            this.btn_ReturnToStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_ReturnToStart.Location = new System.Drawing.Point(171, 12);
-            this.btn_ReturnToStart.Name = "btn_ReturnToStart";
-            this.btn_ReturnToStart.Size = new System.Drawing.Size(55, 55);
-            this.btn_ReturnToStart.TabIndex = 12;
-            this.btn_ReturnToStart.TabStop = false;
-            this.toolTip_MainForm.SetToolTip(this.btn_ReturnToStart, "Добавить");
-            this.btn_ReturnToStart.UseVisualStyleBackColor = false;
-            // 
-            // btn_StopMoving
-            // 
-            this.btn_StopMoving.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_StopMoving.BackgroundImage = global::Biolab.Properties.Resources.stop_btn;
-            this.btn_StopMoving.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_StopMoving.Location = new System.Drawing.Point(90, 12);
-            this.btn_StopMoving.Name = "btn_StopMoving";
-            this.btn_StopMoving.Size = new System.Drawing.Size(55, 55);
-            this.btn_StopMoving.TabIndex = 11;
-            this.btn_StopMoving.TabStop = false;
-            this.toolTip_MainForm.SetToolTip(this.btn_StopMoving, "Добавить");
-            this.btn_StopMoving.UseVisualStyleBackColor = false;
-            // 
-            // btn_StartMoving
-            // 
-            this.btn_StartMoving.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_StartMoving.BackgroundImage = global::Biolab.Properties.Resources.start_btn;
-            this.btn_StartMoving.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_StartMoving.Location = new System.Drawing.Point(13, 12);
-            this.btn_StartMoving.Name = "btn_StartMoving";
-            this.btn_StartMoving.Size = new System.Drawing.Size(55, 55);
-            this.btn_StartMoving.TabIndex = 10;
-            this.btn_StartMoving.TabStop = false;
-            this.toolTip_MainForm.SetToolTip(this.btn_StartMoving, "Добавить");
-            this.btn_StartMoving.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -385,6 +276,115 @@ namespace Biolab
             this.pnl_ControlButtons.Name = "pnl_ControlButtons";
             this.pnl_ControlButtons.Size = new System.Drawing.Size(426, 81);
             this.pnl_ControlButtons.TabIndex = 0;
+            // 
+            // btn_ReturnToStart
+            // 
+            this.btn_ReturnToStart.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_ReturnToStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_ReturnToStart.BackgroundImage")));
+            this.btn_ReturnToStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_ReturnToStart.Location = new System.Drawing.Point(171, 12);
+            this.btn_ReturnToStart.Name = "btn_ReturnToStart";
+            this.btn_ReturnToStart.Size = new System.Drawing.Size(55, 55);
+            this.btn_ReturnToStart.TabIndex = 12;
+            this.btn_ReturnToStart.TabStop = false;
+            this.toolTip_MainForm.SetToolTip(this.btn_ReturnToStart, "Добавить");
+            this.btn_ReturnToStart.UseVisualStyleBackColor = false;
+            // 
+            // btn_StopMoving
+            // 
+            this.btn_StopMoving.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_StopMoving.BackgroundImage = global::Biolab.Properties.Resources.stop_btn;
+            this.btn_StopMoving.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_StopMoving.Location = new System.Drawing.Point(90, 12);
+            this.btn_StopMoving.Name = "btn_StopMoving";
+            this.btn_StopMoving.Size = new System.Drawing.Size(55, 55);
+            this.btn_StopMoving.TabIndex = 11;
+            this.btn_StopMoving.TabStop = false;
+            this.toolTip_MainForm.SetToolTip(this.btn_StopMoving, "Добавить");
+            this.btn_StopMoving.UseVisualStyleBackColor = false;
+            // 
+            // btn_StartMoving
+            // 
+            this.btn_StartMoving.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_StartMoving.BackgroundImage = global::Biolab.Properties.Resources.start_btn;
+            this.btn_StartMoving.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_StartMoving.Location = new System.Drawing.Point(13, 12);
+            this.btn_StartMoving.Name = "btn_StartMoving";
+            this.btn_StartMoving.Size = new System.Drawing.Size(55, 55);
+            this.btn_StartMoving.TabIndex = 10;
+            this.btn_StartMoving.TabStop = false;
+            this.toolTip_MainForm.SetToolTip(this.btn_StartMoving, "Добавить");
+            this.btn_StartMoving.UseVisualStyleBackColor = false;
+            // 
+            // btn_DeleteAllPoints
+            // 
+            this.btn_DeleteAllPoints.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_DeleteAllPoints.BackgroundImage = global::Biolab.Properties.Resources.deleteAllPointsDisabled_btn;
+            this.btn_DeleteAllPoints.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_DeleteAllPoints.Location = new System.Drawing.Point(312, 12);
+            this.btn_DeleteAllPoints.Name = "btn_DeleteAllPoints";
+            this.btn_DeleteAllPoints.Size = new System.Drawing.Size(55, 47);
+            this.btn_DeleteAllPoints.TabIndex = 9;
+            this.btn_DeleteAllPoints.TabStop = false;
+            this.toolTip_MainForm.SetToolTip(this.btn_DeleteAllPoints, "Очистить список");
+            this.btn_DeleteAllPoints.UseVisualStyleBackColor = false;
+            this.btn_DeleteAllPoints.Click += new System.EventHandler(this.btn_DeleteAllPoints_Click);
+            // 
+            // btn_editPoint
+            // 
+            this.btn_editPoint.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_editPoint.BackgroundImage = global::Biolab.Properties.Resources.editPointDisabled_btn;
+            this.btn_editPoint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_editPoint.Location = new System.Drawing.Point(182, 12);
+            this.btn_editPoint.Name = "btn_editPoint";
+            this.btn_editPoint.Size = new System.Drawing.Size(55, 47);
+            this.btn_editPoint.TabIndex = 7;
+            this.btn_editPoint.TabStop = false;
+            this.toolTip_MainForm.SetToolTip(this.btn_editPoint, "Редактировать");
+            this.btn_editPoint.UseVisualStyleBackColor = false;
+            this.btn_editPoint.Click += new System.EventHandler(this.btn_editPoint_Click);
+            // 
+            // btn_DeletePoint
+            // 
+            this.btn_DeletePoint.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_DeletePoint.BackgroundImage = global::Biolab.Properties.Resources.deletePointDisabled_btn;
+            this.btn_DeletePoint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_DeletePoint.Location = new System.Drawing.Point(247, 12);
+            this.btn_DeletePoint.Name = "btn_DeletePoint";
+            this.btn_DeletePoint.Size = new System.Drawing.Size(55, 47);
+            this.btn_DeletePoint.TabIndex = 8;
+            this.btn_DeletePoint.TabStop = false;
+            this.toolTip_MainForm.SetToolTip(this.btn_DeletePoint, "Удалить");
+            this.btn_DeletePoint.UseVisualStyleBackColor = false;
+            this.btn_DeletePoint.Click += new System.EventHandler(this.btn_DeletePoint_Click);
+            // 
+            // btn_AddPoint
+            // 
+            this.btn_AddPoint.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_AddPoint.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_AddPoint.BackgroundImage")));
+            this.btn_AddPoint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_AddPoint.Location = new System.Drawing.Point(117, 12);
+            this.btn_AddPoint.Name = "btn_AddPoint";
+            this.btn_AddPoint.Size = new System.Drawing.Size(55, 47);
+            this.btn_AddPoint.TabIndex = 6;
+            this.btn_AddPoint.TabStop = false;
+            this.toolTip_MainForm.SetToolTip(this.btn_AddPoint, "Добавить");
+            this.btn_AddPoint.UseVisualStyleBackColor = false;
+            this.btn_AddPoint.Click += new System.EventHandler(this.btn_AddPoint_Click);
+            // 
+            // btn_RefreshPorts
+            // 
+            this.btn_RefreshPorts.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_RefreshPorts.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_RefreshPorts.BackgroundImage")));
+            this.btn_RefreshPorts.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_RefreshPorts.Location = new System.Drawing.Point(13, 48);
+            this.btn_RefreshPorts.Name = "btn_RefreshPorts";
+            this.btn_RefreshPorts.Size = new System.Drawing.Size(71, 47);
+            this.btn_RefreshPorts.TabIndex = 3;
+            this.btn_RefreshPorts.TabStop = false;
+            this.toolTip_MainForm.SetToolTip(this.btn_RefreshPorts, "Обновить");
+            this.btn_RefreshPorts.UseVisualStyleBackColor = false;
+            this.btn_RefreshPorts.Click += new System.EventHandler(this.btn_RefreshPorts_Click);
             // 
             // MainForm
             // 
