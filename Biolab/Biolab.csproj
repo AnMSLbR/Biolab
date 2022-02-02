@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,6 +68,12 @@
     <Compile Include="ExperimentForm.Designer.cs">
       <DependentUpon>ExperimentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImageManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ImageManager.Designer.cs">
+      <DependentUpon>ImageManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -70,6 +91,9 @@
     <Compile Include="Trajectory.cs" />
     <EmbeddedResource Include="ExperimentForm.resx">
       <DependentUpon>ExperimentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageManager.resx">
+      <DependentUpon>ImageManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListItem.resx">
       <DependentUpon>ListItem.cs</DependentUpon>
@@ -128,8 +152,23 @@
     <None Include="images\deleteAllPointsDisabled_btn.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="images\ImageManager_FolderIcon.png" />
+    <None Include="images\ImageManager_ImageIcon.png" />
+    <None Include="images\ImageManager_ImagesNotFound.jpg" />
     <Content Include="images\start_btn.png" />
     <None Include="images\stop_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

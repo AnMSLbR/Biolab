@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
+using System.IO;
 
 namespace Biolab
 {
@@ -21,6 +22,7 @@ namespace Biolab
 
         public MainForm()
         {
+            CreatePhotoFolder();
             InitializeComponent();
         }
 
@@ -29,6 +31,7 @@ namespace Biolab
             UpdateListItems();
             UpdateControls();
             searchPorts();
+
             //btn_editPoint.Enabled = false;
             //btn_DeletePoint.Enabled = false;
         }
@@ -214,6 +217,22 @@ namespace Biolab
             _selectedListItem = (ListItem)sender;
             _selectedListItem.BorderStyle = BorderStyle.FixedSingle;
             UpdateControls();
+        }
+
+        private void CreatePhotoFolder()
+        {
+            string path = "Photo";
+            try
+            {
+                if(!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
     }
