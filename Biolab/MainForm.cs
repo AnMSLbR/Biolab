@@ -22,6 +22,7 @@ namespace Biolab
 
         public MainForm()
         {
+            CreatePhotoFolder();
             InitializeComponent();
         }
 
@@ -30,7 +31,7 @@ namespace Biolab
             UpdateListItems();
             UpdateControls();
             searchPorts();
-            CreatePhotoFolder();
+
             //btn_editPoint.Enabled = false;
             //btn_DeletePoint.Enabled = false;
         }

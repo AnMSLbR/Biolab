@@ -143,6 +143,36 @@ namespace Biolab.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ImageManager_FolderIcon {
+            get {
+                object obj = ResourceManager.GetObject("ImageManager_FolderIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ImageManager_ImageIcon {
+            get {
+                object obj = ResourceManager.GetObject("ImageManager_ImageIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ImageManager_ImagesNotFound {
+            get {
+                object obj = ResourceManager.GetObject("ImageManager_ImagesNotFound", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap refresh_btn {
             get {
                 object obj = ResourceManager.GetObject("refresh_btn", resourceCulture);
