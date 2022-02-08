@@ -200,6 +200,7 @@ namespace Biolab
                 else
                     btn_Show.Enabled = true;
             }
+            tb_Path.Text = Path.GetFullPath(_currentPath);
         }
 
         private void SetBackgroundImage()
@@ -228,6 +229,5 @@ namespace Biolab
             GoToNextPath();
             ExecuteSelectedItem();
         }
-
     }
 }
