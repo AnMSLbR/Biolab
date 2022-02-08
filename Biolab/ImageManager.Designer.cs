@@ -38,6 +38,7 @@ namespace Biolab
             this.btn_Show = new System.Windows.Forms.Button();
             this.btn_Update = new System.Windows.Forms.Button();
             this.btn_OpenFolder = new System.Windows.Forms.Button();
+            this.tb_Path = new System.Windows.Forms.TextBox();
             this.tlPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,16 +59,15 @@ namespace Biolab
             // 
             // listV_ImagesArea
             // 
-            this.listV_ImagesArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.listV_ImagesArea.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listV_ImagesArea.BackColor = System.Drawing.SystemColors.Window;
             this.listV_ImagesArea.HideSelection = false;
             this.listV_ImagesArea.LargeImageList = this.imageList;
-            this.listV_ImagesArea.Location = new System.Drawing.Point(3, 3);
+            this.listV_ImagesArea.Location = new System.Drawing.Point(3, 35);
             this.listV_ImagesArea.MultiSelect = false;
             this.listV_ImagesArea.Name = "listV_ImagesArea";
-            this.listV_ImagesArea.Size = new System.Drawing.Size(994, 920);
+            this.listV_ImagesArea.Size = new System.Drawing.Size(994, 888);
             this.listV_ImagesArea.SmallImageList = this.imageList;
             this.listV_ImagesArea.TabIndex = 0;
             this.listV_ImagesArea.UseCompatibleStateImageBehavior = false;
@@ -131,11 +131,22 @@ namespace Biolab
             this.btn_OpenFolder.UseVisualStyleBackColor = true;
             this.btn_OpenFolder.Click += new System.EventHandler(this.btn_OpenFolder_Click);
             // 
+            // tb_Path
+            // 
+            this.tb_Path.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_Path.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_Path.Location = new System.Drawing.Point(3, 1);
+            this.tb_Path.Name = "tb_Path";
+            this.tb_Path.ReadOnly = true;
+            this.tb_Path.Size = new System.Drawing.Size(994, 26);
+            this.tb_Path.TabIndex = 5;
+            // 
             // ImageManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.tb_Path);
             this.Controls.Add(this.btn_OpenFolder);
             this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.btn_Show);
@@ -147,6 +158,7 @@ namespace Biolab
             this.Leave += new System.EventHandler(this.ImageManager_Leave);
             this.tlPanel.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -159,5 +171,6 @@ namespace Biolab
         private System.Windows.Forms.Button btn_Update;
         private System.Windows.Forms.Button btn_OpenFolder;
         private System.Windows.Forms.ImageList imageList;
+        private System.Windows.Forms.TextBox tb_Path;
     }
 }
