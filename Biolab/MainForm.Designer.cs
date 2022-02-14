@@ -58,13 +58,18 @@ namespace Biolab
             this.lbl_ExperimentDescription = new System.Windows.Forms.Label();
             this.lbl_ExperimentTitle = new System.Windows.Forms.Label();
             this.pnl_ControlButtons = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlp_Workspace = new System.Windows.Forms.TableLayoutPanel();
+            this.tc_Foto = new System.Windows.Forms.TabControl();
+            this.tp_Images = new System.Windows.Forms.TabPage();
+            this.tb_Cameras = new System.Windows.Forms.TabPage();
             this.im_ExperimentImages = new Biolab.ImageManager();
             this.pnl_ConnectPorts.SuspendLayout();
             this.pnl_Trajectory.SuspendLayout();
             this.pnl_ExperimentInformation.SuspendLayout();
             this.pnl_ControlButtons.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tlp_Workspace.SuspendLayout();
+            this.tc_Foto.SuspendLayout();
+            this.tp_Images.SuspendLayout();
             this.SuspendLayout();
             // 
             // cb_Ports
@@ -272,7 +277,7 @@ namespace Biolab
             this.pnl_ExperimentInformation.Controls.Add(this.lbl_ExperimentTitle);
             this.pnl_ExperimentInformation.Location = new System.Drawing.Point(3, 97);
             this.pnl_ExperimentInformation.Name = "pnl_ExperimentInformation";
-            this.pnl_ExperimentInformation.Size = new System.Drawing.Size(494, 902);
+            this.pnl_ExperimentInformation.Size = new System.Drawing.Size(487, 902);
             this.pnl_ExperimentInformation.TabIndex = 0;
             // 
             // lbl_RecordDate
@@ -374,41 +379,77 @@ namespace Biolab
             this.pnl_ControlButtons.Controls.Add(this.btn_StartMoving);
             this.pnl_ControlButtons.Location = new System.Drawing.Point(3, 3);
             this.pnl_ControlButtons.Name = "pnl_ControlButtons";
-            this.pnl_ControlButtons.Size = new System.Drawing.Size(494, 83);
+            this.pnl_ControlButtons.Size = new System.Drawing.Size(487, 83);
             this.pnl_ControlButtons.TabIndex = 0;
             // 
-            // tableLayoutPanel1
+            // tlp_Workspace
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1785F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.8215F));
-            this.tableLayoutPanel1.Controls.Add(this.pnl_ControlButtons, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pnl_ExperimentInformation, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.im_ExperimentImages, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(401, 9);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.453781F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.54622F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1507, 1002);
-            this.tableLayoutPanel1.TabIndex = 6;
+            this.tlp_Workspace.ColumnCount = 2;
+            this.tlp_Workspace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.63158F));
+            this.tlp_Workspace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.36842F));
+            this.tlp_Workspace.Controls.Add(this.pnl_ControlButtons, 0, 0);
+            this.tlp_Workspace.Controls.Add(this.pnl_ExperimentInformation, 0, 1);
+            this.tlp_Workspace.Controls.Add(this.tc_Foto, 1, 0);
+            this.tlp_Workspace.Location = new System.Drawing.Point(401, 9);
+            this.tlp_Workspace.Name = "tlp_Workspace";
+            this.tlp_Workspace.RowCount = 2;
+            this.tlp_Workspace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.453781F));
+            this.tlp_Workspace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.54622F));
+            this.tlp_Workspace.Size = new System.Drawing.Size(1513, 1002);
+            this.tlp_Workspace.TabIndex = 6;
+            // 
+            // tc_Foto
+            // 
+            this.tc_Foto.Controls.Add(this.tp_Images);
+            this.tc_Foto.Controls.Add(this.tb_Cameras);
+            this.tc_Foto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tc_Foto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tc_Foto.Location = new System.Drawing.Point(496, 3);
+            this.tc_Foto.Name = "tc_Foto";
+            this.tlp_Workspace.SetRowSpan(this.tc_Foto, 2);
+            this.tc_Foto.SelectedIndex = 0;
+            this.tc_Foto.Size = new System.Drawing.Size(1014, 996);
+            this.tc_Foto.TabIndex = 1;
+            // 
+            // tp_Images
+            // 
+            this.tp_Images.Controls.Add(this.im_ExperimentImages);
+            this.tp_Images.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.tp_Images.Location = new System.Drawing.Point(4, 29);
+            this.tp_Images.Name = "tp_Images";
+            this.tp_Images.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_Images.Size = new System.Drawing.Size(1006, 963);
+            this.tp_Images.TabIndex = 0;
+            this.tp_Images.Text = "Фотографии";
+            this.tp_Images.UseVisualStyleBackColor = true;
+            // 
+            // tb_Cameras
+            // 
+            this.tb_Cameras.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.tb_Cameras.Location = new System.Drawing.Point(4, 29);
+            this.tb_Cameras.Name = "tb_Cameras";
+            this.tb_Cameras.Padding = new System.Windows.Forms.Padding(3);
+            this.tb_Cameras.Size = new System.Drawing.Size(1006, 963);
+            this.tb_Cameras.TabIndex = 1;
+            this.tb_Cameras.Text = "Камеры";
+            this.tb_Cameras.UseVisualStyleBackColor = true;
             // 
             // im_ExperimentImages
             // 
             this.im_ExperimentImages.BackColor = System.Drawing.SystemColors.Window;
-            this.im_ExperimentImages.DirectoryPath = "";
-            this.im_ExperimentImages.Location = new System.Drawing.Point(503, 3);
+            this.im_ExperimentImages.DirectoryPath = "Photo";
+            this.im_ExperimentImages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.im_ExperimentImages.Location = new System.Drawing.Point(3, 3);
             this.im_ExperimentImages.Name = "im_ExperimentImages";
-            this.tableLayoutPanel1.SetRowSpan(this.im_ExperimentImages, 2);
-            this.im_ExperimentImages.Size = new System.Drawing.Size(1000, 991);
-            this.im_ExperimentImages.TabIndex = 1;
+            this.im_ExperimentImages.Size = new System.Drawing.Size(1000, 957);
+            this.im_ExperimentImages.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1001);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tlp_Workspace);
             this.Controls.Add(this.pnl_Trajectory);
             this.Controls.Add(this.pnl_ConnectPorts);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -424,7 +465,9 @@ namespace Biolab
             this.pnl_ExperimentInformation.ResumeLayout(false);
             this.pnl_ExperimentInformation.PerformLayout();
             this.pnl_ControlButtons.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tlp_Workspace.ResumeLayout(false);
+            this.tc_Foto.ResumeLayout(false);
+            this.tp_Images.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -458,7 +501,10 @@ namespace Biolab
         private System.Windows.Forms.TextBox tb_ExperimentTitle;
         private System.Windows.Forms.Label lbl_ExperimentDescription;
         private System.Windows.Forms.Label lbl_ExperimentTitle;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tlp_Workspace;
+        private System.Windows.Forms.TabControl tc_Foto;
+        private System.Windows.Forms.TabPage tp_Images;
+        private System.Windows.Forms.TabPage tb_Cameras;
         private ImageManager im_ExperimentImages;
     }
 }
