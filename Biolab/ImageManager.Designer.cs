@@ -50,11 +50,11 @@ namespace Biolab
             this.tlPanel.ColumnCount = 1;
             this.tlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlPanel.Controls.Add(this.listV_ImagesArea, 0, 0);
-            this.tlPanel.Location = new System.Drawing.Point(0, -3);
+            this.tlPanel.Location = new System.Drawing.Point(0, 33);
             this.tlPanel.Name = "tlPanel";
             this.tlPanel.RowCount = 1;
             this.tlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlPanel.Size = new System.Drawing.Size(1000, 926);
+            this.tlPanel.Size = new System.Drawing.Size(1000, 857);
             this.tlPanel.TabIndex = 0;
             // 
             // listV_ImagesArea
@@ -64,10 +64,10 @@ namespace Biolab
             this.listV_ImagesArea.BackColor = System.Drawing.SystemColors.Window;
             this.listV_ImagesArea.HideSelection = false;
             this.listV_ImagesArea.LargeImageList = this.imageList;
-            this.listV_ImagesArea.Location = new System.Drawing.Point(3, 35);
+            this.listV_ImagesArea.Location = new System.Drawing.Point(3, 3);
             this.listV_ImagesArea.MultiSelect = false;
             this.listV_ImagesArea.Name = "listV_ImagesArea";
-            this.listV_ImagesArea.Size = new System.Drawing.Size(994, 888);
+            this.listV_ImagesArea.Size = new System.Drawing.Size(994, 851);
             this.listV_ImagesArea.SmallImageList = this.imageList;
             this.listV_ImagesArea.TabIndex = 0;
             this.listV_ImagesArea.UseCompatibleStateImageBehavior = false;
@@ -86,7 +86,7 @@ namespace Biolab
             this.btn_Back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_Back.Enabled = false;
             this.btn_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_Back.Location = new System.Drawing.Point(3, 930);
+            this.btn_Back.Location = new System.Drawing.Point(3, 897);
             this.btn_Back.Name = "btn_Back";
             this.btn_Back.Size = new System.Drawing.Size(230, 50);
             this.btn_Back.TabIndex = 1;
@@ -99,7 +99,7 @@ namespace Biolab
             this.btn_Show.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_Show.Enabled = false;
             this.btn_Show.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_Show.Location = new System.Drawing.Point(258, 930);
+            this.btn_Show.Location = new System.Drawing.Point(258, 897);
             this.btn_Show.Name = "btn_Show";
             this.btn_Show.Size = new System.Drawing.Size(230, 50);
             this.btn_Show.TabIndex = 2;
@@ -111,7 +111,7 @@ namespace Biolab
             // 
             this.btn_Update.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_Update.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_Update.Location = new System.Drawing.Point(512, 930);
+            this.btn_Update.Location = new System.Drawing.Point(512, 897);
             this.btn_Update.Name = "btn_Update";
             this.btn_Update.Size = new System.Drawing.Size(230, 50);
             this.btn_Update.TabIndex = 3;
@@ -123,7 +123,7 @@ namespace Biolab
             // 
             this.btn_OpenFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_OpenFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_OpenFolder.Location = new System.Drawing.Point(766, 930);
+            this.btn_OpenFolder.Location = new System.Drawing.Point(766, 897);
             this.btn_OpenFolder.Name = "btn_OpenFolder";
             this.btn_OpenFolder.Size = new System.Drawing.Size(230, 50);
             this.btn_OpenFolder.TabIndex = 4;
@@ -133,6 +133,8 @@ namespace Biolab
             // 
             // tb_Path
             // 
+            this.tb_Path.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_Path.BackColor = System.Drawing.SystemColors.Window;
             this.tb_Path.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tb_Path.Location = new System.Drawing.Point(3, 1);
@@ -153,7 +155,7 @@ namespace Biolab
             this.Controls.Add(this.btn_Back);
             this.Controls.Add(this.tlPanel);
             this.Name = "ImageManager";
-            this.Size = new System.Drawing.Size(1000, 991);
+            this.Size = new System.Drawing.Size(1000, 957);
             this.Load += new System.EventHandler(this.ImageManager_Load);
             this.Leave += new System.EventHandler(this.ImageManager_Leave);
             this.tlPanel.ResumeLayout(false);
