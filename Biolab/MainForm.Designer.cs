@@ -61,8 +61,8 @@ namespace Biolab
             this.tlp_Workspace = new System.Windows.Forms.TableLayoutPanel();
             this.tc_Foto = new System.Windows.Forms.TabControl();
             this.tp_Images = new System.Windows.Forms.TabPage();
-            this.tb_Cameras = new System.Windows.Forms.TabPage();
             this.im_ExperimentImages = new Biolab.ImageManager();
+            this.tb_Cameras = new System.Windows.Forms.TabPage();
             this.pnl_ConnectPorts.SuspendLayout();
             this.pnl_Trajectory.SuspendLayout();
             this.pnl_ExperimentInformation.SuspendLayout();
@@ -423,6 +423,16 @@ namespace Biolab
             this.tp_Images.Text = "Фотографии";
             this.tp_Images.UseVisualStyleBackColor = true;
             // 
+            // im_ExperimentImages
+            // 
+            this.im_ExperimentImages.BackColor = System.Drawing.SystemColors.Window;
+            this.im_ExperimentImages.DirectoryPath = "Photo";
+            this.im_ExperimentImages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.im_ExperimentImages.Location = new System.Drawing.Point(3, 3);
+            this.im_ExperimentImages.Name = "im_ExperimentImages";
+            this.im_ExperimentImages.Size = new System.Drawing.Size(1000, 957);
+            this.im_ExperimentImages.TabIndex = 0;
+            // 
             // tb_Cameras
             // 
             this.tb_Cameras.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -433,16 +443,6 @@ namespace Biolab
             this.tb_Cameras.TabIndex = 1;
             this.tb_Cameras.Text = "Камеры";
             this.tb_Cameras.UseVisualStyleBackColor = true;
-            // 
-            // im_ExperimentImages
-            // 
-            this.im_ExperimentImages.BackColor = System.Drawing.SystemColors.Window;
-            this.im_ExperimentImages.DirectoryPath = "Photo";
-            this.im_ExperimentImages.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.im_ExperimentImages.Location = new System.Drawing.Point(3, 3);
-            this.im_ExperimentImages.Name = "im_ExperimentImages";
-            this.im_ExperimentImages.Size = new System.Drawing.Size(1000, 957);
-            this.im_ExperimentImages.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -457,6 +457,7 @@ namespace Biolab
             this.Name = "MainForm";
             this.Text = "Biolab";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.pnl_ConnectPorts.ResumeLayout(false);
             this.pnl_ConnectPorts.PerformLayout();
