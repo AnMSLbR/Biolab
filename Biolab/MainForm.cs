@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 using System.IO;
+using System.Threading;
 
 namespace Biolab
 {
@@ -17,6 +18,8 @@ namespace Biolab
 
         private SerialPort _connectedPort = new SerialPort();
         private ListItem _selectedListItem;
+        private delegate void HandleDataDelegate(string text);
+        private ControllerCommandTranslator _translator = new ControllerCommandTranslator();
 
         private List<Experiment> _experimentList = new List<Experiment>();
 
@@ -35,7 +38,10 @@ namespace Biolab
             //btn_editPoint.Enabled = false;
             //btn_DeletePoint.Enabled = false;
         }
-
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            closePort();
+        }
         private void btn_ConnectPort_Click(object sender, EventArgs e)
         {
             if (_connectedPort.IsOpen)
@@ -64,6 +70,7 @@ namespace Biolab
             _connectedPort.DataBits = 8;
             _connectedPort.StopBits = StopBits.One;
 
+            _connectedPort.DataReceived += new SerialDataReceivedEventHandler(ReceiveData);
             try
             {
                 _connectedPort.Open();
@@ -74,11 +81,24 @@ namespace Biolab
             }
         }
 
+        private void ReceiveData(object sender, SerialDataReceivedEventArgs e)
+        {
+            Thread.Sleep(500);
+            string data = _connectedPort.ReadLine();
+            this.BeginInvoke(new HandleDataDelegate(HandleData), data);
+        }
+
+        private void HandleData(string data)
+        {
+
+        }
+
         private void closePort()
         {
             try
             {
                 _connectedPort.Close();
+                _connectedPort.DataReceived -= new SerialDataReceivedEventHandler(ReceiveData);
             }
             catch (Exception ex)
             {
@@ -234,6 +254,7 @@ namespace Biolab
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
     }
 }
