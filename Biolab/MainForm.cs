@@ -74,6 +74,7 @@ namespace Biolab
             try
             {
                 _connectedPort.Open();
+                PingConnection();
             }
             catch (Exception ex)
             {
@@ -84,13 +85,19 @@ namespace Biolab
         private void ReceiveData(object sender, SerialDataReceivedEventArgs e)
         {
             Thread.Sleep(500);
-            string data = _connectedPort.ReadLine();
+            string data = String.Empty;
+            data = _connectedPort.ReadLine();
             this.BeginInvoke(new HandleDataDelegate(HandleData), data);
         }
 
         private void HandleData(string data)
         {
-
+            switch(_translator.TranslateFromController(data))
+            {
+                case "connected":
+                    tb_Log.Text += "Контроллер подключен\r\n";
+                    break;
+            }
         }
 
         private void closePort()
@@ -123,6 +130,23 @@ namespace Biolab
                 }
                 cb_Ports.SelectedItem = portNames[0];
                 btn_ConnectPort.Enabled = true;
+            }
+        }
+
+        private void PingConnection()
+        {
+            SendData(_translator.ComposePingCommand());
+        }
+
+        private void SendData(string command)
+        {
+            try
+            {
+                _connectedPort.Write(command);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
             }
         }
 
@@ -255,6 +279,14 @@ namespace Biolab
             }
         }
 
+        private void btn_StartMoving_Click(object sender, EventArgs e)
+        {
+            StartMoving();
+        }
 
+        private void StartMoving()
+        {
+            _translator.ComposeMovingCommand();
+        }
     }
 }
