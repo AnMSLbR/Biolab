@@ -61,8 +61,9 @@ namespace Biolab
             this.tlp_Workspace = new System.Windows.Forms.TableLayoutPanel();
             this.tc_Foto = new System.Windows.Forms.TabControl();
             this.tp_Images = new System.Windows.Forms.TabPage();
-            this.im_ExperimentImages = new Biolab.ImageManager();
             this.tb_Cameras = new System.Windows.Forms.TabPage();
+            this.tb_Log = new System.Windows.Forms.TextBox();
+            this.im_ExperimentImages = new Biolab.ImageManager();
             this.pnl_ConnectPorts.SuspendLayout();
             this.pnl_Trajectory.SuspendLayout();
             this.pnl_ExperimentInformation.SuspendLayout();
@@ -261,11 +262,13 @@ namespace Biolab
             this.btn_StartMoving.TabStop = false;
             this.toolTip_MainForm.SetToolTip(this.btn_StartMoving, "Добавить");
             this.btn_StartMoving.UseVisualStyleBackColor = false;
+            this.btn_StartMoving.Click += new System.EventHandler(this.btn_StartMoving_Click);
             // 
             // pnl_ExperimentInformation
             // 
             this.pnl_ExperimentInformation.BackColor = System.Drawing.SystemColors.Window;
             this.pnl_ExperimentInformation.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnl_ExperimentInformation.Controls.Add(this.tb_Log);
             this.pnl_ExperimentInformation.Controls.Add(this.lbl_RecordDate);
             this.pnl_ExperimentInformation.Controls.Add(this.tb_Distance);
             this.pnl_ExperimentInformation.Controls.Add(this.lbl_Distance);
@@ -423,16 +426,6 @@ namespace Biolab
             this.tp_Images.Text = "Фотографии";
             this.tp_Images.UseVisualStyleBackColor = true;
             // 
-            // im_ExperimentImages
-            // 
-            this.im_ExperimentImages.BackColor = System.Drawing.SystemColors.Window;
-            this.im_ExperimentImages.DirectoryPath = "Photo";
-            this.im_ExperimentImages.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.im_ExperimentImages.Location = new System.Drawing.Point(3, 3);
-            this.im_ExperimentImages.Name = "im_ExperimentImages";
-            this.im_ExperimentImages.Size = new System.Drawing.Size(1000, 957);
-            this.im_ExperimentImages.TabIndex = 0;
-            // 
             // tb_Cameras
             // 
             this.tb_Cameras.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -443,6 +436,30 @@ namespace Biolab
             this.tb_Cameras.TabIndex = 1;
             this.tb_Cameras.Text = "Камеры";
             this.tb_Cameras.UseVisualStyleBackColor = true;
+            // 
+            // tb_Log
+            // 
+            this.tb_Log.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_Log.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_Log.Location = new System.Drawing.Point(65, 17);
+            this.tb_Log.Multiline = true;
+            this.tb_Log.Name = "tb_Log";
+            this.tb_Log.ReadOnly = true;
+            this.tb_Log.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tb_Log.Size = new System.Drawing.Size(412, 864);
+            this.tb_Log.TabIndex = 16;
+            this.tb_Log.TabStop = false;
+            this.tb_Log.Text = "dddddddddddddddddddddddd\r\ndddddddddddd\r\n";
+            // 
+            // im_ExperimentImages
+            // 
+            this.im_ExperimentImages.BackColor = System.Drawing.SystemColors.Window;
+            this.im_ExperimentImages.DirectoryPath = "Photo";
+            this.im_ExperimentImages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.im_ExperimentImages.Location = new System.Drawing.Point(3, 3);
+            this.im_ExperimentImages.Name = "im_ExperimentImages";
+            this.im_ExperimentImages.Size = new System.Drawing.Size(1000, 957);
+            this.im_ExperimentImages.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -507,6 +524,7 @@ namespace Biolab
         private System.Windows.Forms.TabPage tp_Images;
         private System.Windows.Forms.TabPage tb_Cameras;
         private ImageManager im_ExperimentImages;
+        private System.Windows.Forms.TextBox tb_Log;
     }
 }
 

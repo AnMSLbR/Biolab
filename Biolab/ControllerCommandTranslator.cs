@@ -9,11 +9,36 @@ namespace Biolab
     class ControllerCommandTranslator
     {
 
+        private int _distance;
+        private string _command;
+        private string[] _movementCommand;
 
+        public ControllerCommandTranslator()
+        { }
 
-        public void Translate(string str)
+        public string TranslateFromController(string str)
         {
-            //return str;
+            if(str[0] == 'C')
+            {
+                _command = "connected";
+                return _command;
+            }
+            else
+            {
+                _command = "error";
+                return _command;
+            }
+        }
+
+        public string ComposePingCommand()
+        {
+            _command = "C";
+            return _command;
+        }
+
+        public string[] ComposeMovingCommand()
+        {
+            return _movementCommand;
         }
     }
 }
