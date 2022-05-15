@@ -22,6 +22,9 @@ namespace Biolab
         private ControllerCommandTranslator _translator = new ControllerCommandTranslator();
 
         private List<Experiment> _experimentList = new List<Experiment>();
+        private List<string> _movingCommandList = new List<string>();
+        private int _currentPointID = 0;
+        //private Trajectory _trajectory;
 
         public MainForm()
         {
@@ -97,6 +100,34 @@ namespace Biolab
                 case "connected":
                     tb_Log.Text += "Контроллер подключен\r\n";
                     break;
+                case "successful":
+                    if(_translator.CurrentPoint == _currentPointID)
+                    {
+                        tb_Log.Text += $"Достигнута точка {_currentPointID}\r\n";
+                        _movingCommandList.RemoveAt(0);
+                        if (_movingCommandList.Any())
+                        {
+                            StartMoving();
+                        }
+                        else
+                        {
+                            // команда на возвращение
+                        }
+                        break;
+                    }
+                    else
+                    {
+                        throw new Exception("Номер точки остановки, переданный контроллером, неверен");
+                    }
+                case "zero":
+                    tb_Log.Text += $"Достигнута начальная точка\r\n";
+                    break;
+                case "pause":
+                    tb_Log.Text += $"Движение остановлено\r\n";
+                    break;
+                case "error":
+                    throw new Exception("Данные, переданные контроллером, не распознаны");
+                    
             }
         }
 
@@ -281,12 +312,35 @@ namespace Biolab
 
         private void btn_StartMoving_Click(object sender, EventArgs e)
         {
-            StartMoving();
+            if (_experimentList.Any())
+            {
+                StartMoving();
+            }
         }
 
         private void StartMoving()
         {
-            _translator.ComposeMovingCommand();
+
+            //_trajectory.Build(_experimentList);
+            if (!_movingCommandList.Any())
+            {
+                _movingCommandList = _translator.ComposeMovingCommand(_experimentList);
+            }
+            try
+            {
+                _connectedPort.Write(_movingCommandList[0]);
+                _currentPointID++;
+                //удалять?
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
+
+        private void btn_ReturnToStart_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
