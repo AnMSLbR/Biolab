@@ -13,10 +13,20 @@ namespace Biolab
         public Trajectory()
         { }
         
+        //public string Build(List<Experiment> experimentList)
+        //{
+        //    foreach (Experiment experiment in experimentList)
+        //    {
 
-        private void AddPointToTrajectory(int Point)
-        {
-            this._trajectory.Add(Point);
-        }
+        //    }    
+
+
+        //        return "";
+        //}
+
+        //private void AddPointToTrajectory(int Point)
+        //{
+        //    this._trajectory.Add(Point);
+        //}
     }
 }

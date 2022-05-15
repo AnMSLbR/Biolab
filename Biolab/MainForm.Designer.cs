@@ -48,6 +48,7 @@ namespace Biolab
             this.btn_StopMoving = new System.Windows.Forms.Button();
             this.btn_StartMoving = new System.Windows.Forms.Button();
             this.pnl_ExperimentInformation = new System.Windows.Forms.Panel();
+            this.tb_Log = new System.Windows.Forms.TextBox();
             this.lbl_RecordDate = new System.Windows.Forms.Label();
             this.tb_Distance = new System.Windows.Forms.TextBox();
             this.lbl_Distance = new System.Windows.Forms.Label();
@@ -61,9 +62,8 @@ namespace Biolab
             this.tlp_Workspace = new System.Windows.Forms.TableLayoutPanel();
             this.tc_Foto = new System.Windows.Forms.TabControl();
             this.tp_Images = new System.Windows.Forms.TabPage();
-            this.tb_Cameras = new System.Windows.Forms.TabPage();
-            this.tb_Log = new System.Windows.Forms.TextBox();
             this.im_ExperimentImages = new Biolab.ImageManager();
+            this.tb_Cameras = new System.Windows.Forms.TabPage();
             this.pnl_ConnectPorts.SuspendLayout();
             this.pnl_Trajectory.SuspendLayout();
             this.pnl_ExperimentInformation.SuspendLayout();
@@ -236,6 +236,7 @@ namespace Biolab
             this.btn_ReturnToStart.TabStop = false;
             this.toolTip_MainForm.SetToolTip(this.btn_ReturnToStart, "Добавить");
             this.btn_ReturnToStart.UseVisualStyleBackColor = false;
+            this.btn_ReturnToStart.Click += new System.EventHandler(this.btn_ReturnToStart_Click);
             // 
             // btn_StopMoving
             // 
@@ -282,6 +283,20 @@ namespace Biolab
             this.pnl_ExperimentInformation.Name = "pnl_ExperimentInformation";
             this.pnl_ExperimentInformation.Size = new System.Drawing.Size(487, 902);
             this.pnl_ExperimentInformation.TabIndex = 0;
+            // 
+            // tb_Log
+            // 
+            this.tb_Log.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_Log.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_Log.Location = new System.Drawing.Point(225, -7);
+            this.tb_Log.Multiline = true;
+            this.tb_Log.Name = "tb_Log";
+            this.tb_Log.ReadOnly = true;
+            this.tb_Log.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tb_Log.Size = new System.Drawing.Size(412, 864);
+            this.tb_Log.TabIndex = 16;
+            this.tb_Log.TabStop = false;
+            this.tb_Log.Text = "dddddddddddddddddddddddd\r\ndddddddddddd\r\n";
             // 
             // lbl_RecordDate
             // 
@@ -426,6 +441,16 @@ namespace Biolab
             this.tp_Images.Text = "Фотографии";
             this.tp_Images.UseVisualStyleBackColor = true;
             // 
+            // im_ExperimentImages
+            // 
+            this.im_ExperimentImages.BackColor = System.Drawing.SystemColors.Window;
+            this.im_ExperimentImages.DirectoryPath = "Photo";
+            this.im_ExperimentImages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.im_ExperimentImages.Location = new System.Drawing.Point(3, 3);
+            this.im_ExperimentImages.Name = "im_ExperimentImages";
+            this.im_ExperimentImages.Size = new System.Drawing.Size(1000, 957);
+            this.im_ExperimentImages.TabIndex = 0;
+            // 
             // tb_Cameras
             // 
             this.tb_Cameras.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -436,30 +461,6 @@ namespace Biolab
             this.tb_Cameras.TabIndex = 1;
             this.tb_Cameras.Text = "Камеры";
             this.tb_Cameras.UseVisualStyleBackColor = true;
-            // 
-            // tb_Log
-            // 
-            this.tb_Log.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_Log.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tb_Log.Location = new System.Drawing.Point(65, 17);
-            this.tb_Log.Multiline = true;
-            this.tb_Log.Name = "tb_Log";
-            this.tb_Log.ReadOnly = true;
-            this.tb_Log.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_Log.Size = new System.Drawing.Size(412, 864);
-            this.tb_Log.TabIndex = 16;
-            this.tb_Log.TabStop = false;
-            this.tb_Log.Text = "dddddddddddddddddddddddd\r\ndddddddddddd\r\n";
-            // 
-            // im_ExperimentImages
-            // 
-            this.im_ExperimentImages.BackColor = System.Drawing.SystemColors.Window;
-            this.im_ExperimentImages.DirectoryPath = "Photo";
-            this.im_ExperimentImages.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.im_ExperimentImages.Location = new System.Drawing.Point(3, 3);
-            this.im_ExperimentImages.Name = "im_ExperimentImages";
-            this.im_ExperimentImages.Size = new System.Drawing.Size(1000, 957);
-            this.im_ExperimentImages.TabIndex = 0;
             // 
             // MainForm
             // 
