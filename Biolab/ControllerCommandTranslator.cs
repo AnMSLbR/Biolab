@@ -20,6 +20,7 @@ namespace Biolab
 
         public string TranslateFromController(string str)
         {
+            // null
             if(str == "C")
             {
                 _command = "connected";
@@ -36,11 +37,11 @@ namespace Biolab
                 _command = "zero";
                 return _command;
             }
-            else if (str == "P")
-            {
-                _command = "pause";
-                return _command;
-            }
+            //else if (str == "P")
+            //{
+            //    _command = "pause";
+            //    return _command;
+            //}
             //else if(str[0] == '0')
             //{
             //    _command = "unsuccessful";
@@ -56,6 +57,12 @@ namespace Biolab
         public string ComposePingCommand()
         {
             _command = "C";
+            return _command;
+        }
+
+        public string ComposeReturnCommand()
+        {
+            _command = "R";
             return _command;
         }
 
