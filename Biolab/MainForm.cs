@@ -23,6 +23,7 @@ namespace Biolab
 
         private List<Experiment> _experimentList = new List<Experiment>();
         private List<string> _movingCommandList = new List<string>();
+        private List<string> _tempCommandList = new List<string>();
         private int _currentPointID = 0;
         //private Trajectory _trajectory;
 
@@ -43,7 +44,8 @@ namespace Biolab
         }
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            closePort();
+            if (_connectedPort.IsOpen)
+                closePort();
         }
         private void btn_ConnectPort_Click(object sender, EventArgs e)
         {
@@ -87,10 +89,17 @@ namespace Biolab
 
         private void ReceiveData(object sender, SerialDataReceivedEventArgs e)
         {
-            Thread.Sleep(500);
-            string data = String.Empty;
-            data = _connectedPort.ReadLine();
-            this.BeginInvoke(new HandleDataDelegate(HandleData), data);
+            try
+            {
+                Thread.Sleep(500);
+                string data = String.Empty;
+                data = _connectedPort.ReadLine();
+                this.BeginInvoke(new HandleDataDelegate(HandleData), data);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
         }
 
         private void HandleData(string data)
@@ -103,15 +112,22 @@ namespace Biolab
                 case "successful":
                     if(_translator.CurrentPoint == _currentPointID)
                     {
-                        tb_Log.Text += $"Достигнута точка {_currentPointID}\r\n";
-                        _movingCommandList.RemoveAt(0);
-                        if (_movingCommandList.Any())
+                        if (_movingCommandList.Any() && _movingCommandList[0] == "S") //проверено на пустой список
                         {
-                            StartMoving();
+                            tb_Log.Text += $"Остановка выполнена в точке {_currentPointID}\r\n";
                         }
                         else
                         {
-                            // команда на возвращение
+                            tb_Log.Text += $"Достигнута точка {_currentPointID}\r\n";
+
+                            if (_currentPointID == _experimentList.Count) // or _movingCommandList.Any()
+                            {
+                                ReturnToStart();
+                            }
+                            else
+                            {
+                                StartMoving();
+                            }
                         }
                         break;
                     }
@@ -121,10 +137,12 @@ namespace Biolab
                     }
                 case "zero":
                     tb_Log.Text += $"Достигнута начальная точка\r\n";
+                    _currentPointID = 0;
+                    _movingCommandList.Clear();
                     break;
-                case "pause":
-                    tb_Log.Text += $"Движение остановлено\r\n";
-                    break;
+                //case "pause":
+                //    tb_Log.Text += $"Движение остановлено\r\n";
+                //    break;
                 case "error":
                     throw new Exception("Данные, переданные контроллером, не распознаны");
                     
@@ -320,27 +338,40 @@ namespace Biolab
 
         private void StartMoving()
         {
-
             //_trajectory.Build(_experimentList);
             if (!_movingCommandList.Any())
             {
                 _movingCommandList = _translator.ComposeMovingCommand(_experimentList);
             }
-            try
+            else if (_movingCommandList[0] == "S")
             {
-                _connectedPort.Write(_movingCommandList[0]);
+                _movingCommandList.Clear();
+                _movingCommandList.AddRange(_tempCommandList.ToArray());
+            }
+                SendData(_movingCommandList[0]);
+                _movingCommandList.RemoveAt(0);
                 _currentPointID++;
                 //удалять?
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error");
-            }
+
         }
 
         private void btn_ReturnToStart_Click(object sender, EventArgs e)
         {
+            ReturnToStart();
+        }
+        
+        private void ReturnToStart()
+        {
+            SendData(_translator.ComposeReturnCommand());
+        }
 
+        private void btn_StopMoving_Click(object sender, EventArgs e)
+        {
+            _tempCommandList.Clear();
+            _tempCommandList.AddRange(_movingCommandList.ToArray());
+            _movingCommandList.Clear();
+            _movingCommandList.Add("S");
+            tb_Log.Text += "Выполняется остановка...\r\n";
         }
     }
 }
